@@ -14,3 +14,5 @@ D:\C#\ExampleApp\obj\Debug\ExampleApp.csproj.GenerateResource.cache
 D:\C#\ExampleApp\obj\Debug\ExampleApp.csproj.CoreCompileInputs.cache
 D:\C#\ExampleApp\obj\Debug\ExampleApp.exe
 D:\C#\ExampleApp\obj\Debug\ExampleApp.pdb
+D:\C#\ExampleApp\obj\Debug\AuthPage.g.cs
+D:\C#\ExampleApp\obj\Debug\AuthPage.baml

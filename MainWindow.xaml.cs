@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Configuration;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.CompilerServices;
+using System.Data.SqlClient;
 
 namespace ExampleApp
 {
@@ -119,6 +122,48 @@ namespace ExampleApp
             if (e.Key == Key.Enter)
             {
                 TextBox.Text += "\n";
+            }
+        }
+
+        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = ConfigurationManager.AppSettings["connectionString"];
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            try
+            {
+                if (sqlConnection.State == System.Data.ConnectionState.Closed)
+                    sqlConnection.Open();
+                string query = "SELECT COUNT(1) FROM Users WHERE login=@login AND password=@password";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.Text;
+                sqlCommand.Parameters.Add("@login", LoginField.Text);
+                sqlCommand.Parameters.Add("@password", PasswordField.Password);
+
+                int countUser = Convert.ToInt32(sqlCommand.ExecuteScalar());
+                if (countUser == 0)
+                {
+                    query = "INSERT INTO Users(login, password) VALUES(@login, @password)";
+                    SqlCommand command = new SqlCommand(query, sqlConnection);
+                    command.Parameters.Add("@login", LoginField.Text);
+                    command.Parameters.Add("@password", PasswordField.Password);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("We have added you to the database!");
+                }
+                else
+                {
+                    MessageBox.Show("You have successfully logged in!");
+                    AuthPage authPage = new AuthPage();
+                    authPage.Show();
+                    App.Current.MainWindow.Hide();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
         }
     }
