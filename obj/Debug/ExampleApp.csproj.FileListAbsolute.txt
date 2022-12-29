@@ -1,0 +1,16 @@
+D:\C#\ExampleApp\bin\Debug\ExampleApp.exe.config
+D:\C#\ExampleApp\bin\Debug\ExampleApp.exe
+D:\C#\ExampleApp\bin\Debug\ExampleApp.pdb
+D:\C#\ExampleApp\obj\Debug\ExampleApp.csproj.AssemblyReference.cache
+D:\C#\ExampleApp\obj\Debug\ExampleApp.csproj.SuggestedBindingRedirects.cache
+D:\C#\ExampleApp\obj\Debug\MainWindow.g.cs
+D:\C#\ExampleApp\obj\Debug\App.g.cs
+D:\C#\ExampleApp\obj\Debug\ExampleApp_MarkupCompile.cache
+D:\C#\ExampleApp\obj\Debug\ExampleApp_MarkupCompile.lref
+D:\C#\ExampleApp\obj\Debug\MainWindow.baml
+D:\C#\ExampleApp\obj\Debug\ExampleApp.g.resources
+D:\C#\ExampleApp\obj\Debug\ExampleApp.Properties.Resources.resources
+D:\C#\ExampleApp\obj\Debug\ExampleApp.csproj.GenerateResource.cache
+D:\C#\ExampleApp\obj\Debug\ExampleApp.csproj.CoreCompileInputs.cache
+D:\C#\ExampleApp\obj\Debug\ExampleApp.exe
+D:\C#\ExampleApp\obj\Debug\ExampleApp.pdb

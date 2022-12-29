@@ -1,0 +1,88 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleApp"
+        xmlns:Properties="clr-namespace:ExampleApp.Properties" x:Class="ExampleApp.MainWindow"
+        mc:Ignorable="d"
+        Title="Program" Height="450" Width="800" ResizeMode="NoResize"
+        Topmost="False" WindowState="Normal">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="MenuFile" Header="File">
+                <MenuItem x:Name="CreateFile" Header="Create File" Click="CreateFile_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/file_icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="OpenNewFile" Header="Open File" Click="OpenNewFile_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/openFile.ico"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="SaveFile" Header="Save File" Click="SaveFile_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/saveFile.ico"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="ExitProgram" Header="Exit Program" Click="ExitProgram_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/exit.ico"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="MenuEdit" Header="Edit">
+                <MenuItem x:Name="SelectFont" Header="Font">
+                    <MenuItem x:Name="TimesNewRomantFont" Header="Timew New Roman" IsCheckable="True"
+                              StaysOpenOnClick="True" Click="TimesNewRomantFont_Click">
+                    </MenuItem>
+                    <MenuItem x:Name="VerdanaFont" Header="Verdana" IsCheckable="True"
+                              StaysOpenOnClick="True" Click="VerdanaFont_Click">
+                    </MenuItem>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="CopyText" Header="Copy"
+                      Command="ApplicationCommands.Copy"
+                      InputGestureText="Ctrl+C">
+                </MenuItem>
+                <MenuItem x:Name="PasteText" Header="Paste"
+                      Command="ApplicationCommands.Paste"
+                      InputGestureText="Ctrl+V">
+                </MenuItem>
+                <MenuItem x:Name="CutText" Header="Cut"
+                      Command="ApplicationCommands.Cut"
+                      InputGestureText="Ctrl+X">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar Height="31" Margin="0,0,237,0">
+                <Button x:Name="ButtonSave" ToolTip="Save File" Click="SaveFile_Click">
+                    <Image Source="./Resources/saveFile.ico"></Image>
+                </Button>
+                <Button x:Name="ButtonOpen" ToolTip="Open File" Click="OpenNewFile_Click">
+                    <Image Source="./Resources/openFile.ico"></Image>
+                </Button>
+                <Button x:Name="ButtonCut" ToolTip="Open File" Command="ApplicationCommands.Cut">
+                    <Image Source="./Resources/cut.ico"></Image>
+                </Button>
+                <Button x:Name="ButtonPaste" ToolTip="Open File" Command="ApplicationCommands.Paste">
+                    <Image Source="./Resources/paste.ico"></Image>
+                </Button>
+
+                <Label>Size font</Label>
+                <ComboBox x:Name="SelectFontSize" SelectionChanged="SelectFontSize_SelectionChanged">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">14</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>24</ComboBoxItem>
+                    <ComboBoxItem>32</ComboBoxItem>
+                    <ComboBoxItem>48</ComboBoxItem>
+                    <ComboBoxItem>52</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox x:Name="TextBox" Height="365" Width="770" FontSize="14" KeyDown="TextBox_KeyDown"/>
+    </DockPanel>
+</Window>
